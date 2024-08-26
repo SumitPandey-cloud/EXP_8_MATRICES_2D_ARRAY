@@ -20,7 +20,7 @@ Advantages of Two-Dimensional Matrices in Data Structures: -
 
 Signal Processing: - Signals are represented by matrices for filtering purposes.
 
-Optimizing: - Linear programming constraints are represented using matrices.
+Optimizing: - Linear programming constraints are represented using matrices. 
 
 Statistics: - Matrices represent data and have various operations that they can perform on this data.
 
