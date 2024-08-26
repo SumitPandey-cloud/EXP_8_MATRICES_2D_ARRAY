@@ -2,34 +2,41 @@
 # Experiment 8 :- To study and implement C++ 2D Array - Matrices
 ## AIM: -
 To learn how to implement 2D arrays (Matrices) in C++ and its operations like addition, multiplcation , diagonal addition and comparing 2 rows 
-## Theory: -
-Arrays can be categorised in 2 types as follows: -
-1. One dimensional array
-2. Multi dimensional array
+##  Theory: -
+There are two kinds of arrays, namely;
 
-In this experiments we are going to learn about 2 dimensional arrrays also known as matrices. 
-### Advantages of 2D matrices in data structres: - 
-1 . Easy accesiblilty of elements as elemeents can be accesed via its indexing
-2 . It is easy to implement requiring only 2 for loops.
-3 . It stores multiple elements of the same type in the same name 
-4 . Any data with fixed size can be stored 
+Single dimensional array
+
+Multi dimensional array
+
+These experiments aim to teach us about 2D arrrays also called matrices.
+
+Advantages of Two-Dimensional Matrices in Data Structures: -
+
+1 . Accessibility to the elements is easy since we can locate them via their indices.<br> 2 . This is very simple and uses only two loops. <br>3 . It contains many similar typed elements under one name<br> 4 . Any data having a fixed size can be stored in it<br>
 
 
-### Applications of Matrices in data structures: -
-1. Signal Processing: - Matrices represnt signals and filtering can be done
-   
-2. Optimizing: - Used in linear programming to represent constraints.
-   
-3. Statistics: - Matrices are to represent data and can be used for different operations.
-   
-4. Network Analysis: -  Matrices are used to represnt graphs therefore showing the shortests paths.
+## Applications of Matrices in Data Structures: -
 
-### Basic Operations on Matrices: - 
-1. Taking Inputs for elements and storing them in the matrix.
-2. Taking transpose of a matrix.
-3. Addition of two matrices.
-4. Subtraction of two matrices.
-5. Multiplication of two matrices.
+Signal Processing: - Signals are represented by matrices for filtering purposes.
+
+Optimizing: - Linear programming constraints are represented using matrices.
+
+Statistics: - Matrices represent data and have various operations that they can perform on this data.
+
+Network Analysis: - Graphs are represnted by matrices thus showing the shortests paths.
+
+## Basic Operations on Matrices: -
+
+Taking Inputs for elements and storing them in the matrix.
+
+Taking transpose of a matrix.
+
+Addition of two matrices.
+
+Subtraction of two matrices.
+
+Multiplication of two matrices
 
 ## Code: 
 ```
