@@ -42,211 +42,110 @@ Multiplication of two matrices
 ```
 // Experiment 8: - To study and implement C++ 2D Array - Matrices
 
-
 #include <iostream>
 using namespace std;
 
-void inputMat(int a[100][100], int rows, int col) // user input matrix 
-{
-    for(int i = 0; i < rows; i++)
-    {
-        for(int j = 0; j < col; j++)
-        {
-            cout << "Enter element: (" << i + 1 << ", " << j + 1 << "): ";
-            cin >> a[i][j];
+int main() {
+    int rows, cols;
+    cout << "Enter the number of rows and columns for the matrices: ";
+    cin >> rows >> cols;
+
+    int mat1[100][100], mat2[100][100];
+
+    // Input elements for the first matrix
+    cout << "Enter elements for the first matrix:" << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << "Element (" << i + 1 << ", " << j + 1 << "): ";
+            cin >> mat1[i][j];
         }
     }
-}
 
-void dispmat(int a[100][100], int rows, int col) // diplaying matrix 
-{
-    for(int i = 0; i < rows; i++)
-    {
-        for(int j = 0; j < col; j++)
-        {
-            cout << a[i][j] << " ";
+    // Input elements for the second matrix
+    cout << "Enter elements for the second matrix:" << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << "Element (" << i + 1 << ", " << j + 1 << "): ";
+            cin >> mat2[i][j];
+        }
+    }
+
+    // Display both matrices
+    cout << "First matrix:" << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << mat1[i][j] << " ";
         }
         cout << endl;
     }
-}
 
-void addmat(int a1[100][100], int a2[100][100], int rows, int col)
-{
-    int add[100][100];
-    for(int i = 0; i < rows; i++)
-    {
-        for(int j = 0; j < col; j++)
-        {
-            add[i][j] = a1[i][j] + a2[i][j]; 
+    cout << "Second matrix:" << endl;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            cout << mat2[i][j] << " ";
         }
+        cout << endl;
     }
-    cout << "The addition of the two matrices is as follows: " << endl;
-    dispmat(add, rows, col);
-}
 
-void diagonaladdmat(int a1[100][100], int a2[100][100], int rows, int col)
-{
-    int add[100][100] = {0};
-    for(int i = 0; i < rows; i++)
-    {
-        for(int j = 0; j < col; j++)
-        {
-            if(i == j)
-            {
-                add[i][j] = a1[i][j] + a2[i][j]; 
-            }
-        }
-    }
-    cout << "The diagonal addition of the two matrices is as follows: " << endl;
-    dispmat(add, rows, col);
-}
-
-void mulmat(int b[100][100], int b1[100][100], int R1, int C1, int C2)
-{
-    int result[100][100] = {0};
-    for(int i = 0; i < R1; i++)
-    {
-        for(int j = 0; j < C2; j++)
-        {
-            for(int k = 0; k < C1; k++)
-            {
-                result[i][j] += b[i][k] * b1[k][j];
-            }
-        }
-    }
-    cout << "The product of the two matrices is as follows: " << endl;
-    dispmat(result, R1, C2);
-}
-
-void rowchecker(int rc[100][100], int row, int col)
-{
-    bool equal = true;
-    for(int i = 0; i < row; i++)
-    {
-        for(int j = 0; j < col - 1; j++)
-        {
-            if(rc[i][j] != rc[i][j+1])
-            {
-                equal = false;
-                break;
-            }
-        }
-        if(equal)
-            cout << "Row " << i + 1 << " has all equal columns." << endl;
-        else
-            cout << "Row " << i + 1 << " does not have equal columns." << endl;
-        equal = true;
-    }
-}
-void transpose(int tr[100][100], int rows, int col)
-{
-    int a[100][100];
-    for(int i = 0;i<rows;i++)
-    {
-        for(int j = 0;j<col;j++)
-        {
-            a[j][i] = tr[i][j];
-        }
-    }
-    cout<<"The transpose of the matrix is: "<<endl;
-    dispmat(a, col,rows);
-}
-
-int main()
-{
-    int f[100][100];
-    cout<<"Printing a matrix"<<endl;
-    inputMat(f,3,3); 
-    dispmat(f,3,3);
-    cout<<"------------"<<endl;
-    int mat1[100][100], mat2[100][100];
+    // Menu for operations
     int choice;
-
-    cout << "Press a key for the following operations: " << endl;
+    cout << "Choose an operation:" << endl;
     cout << "1. Addition" << endl;
-    cout << "2. Multiplication" << endl;
-    cout << "3. Diagonal Addition" << endl;
-    cout << "4. Comparing if columns in the same row are equal" << endl;
-    cout << "5 . Transposing "<< endl;
+    cout << "2. Subtraction" << endl;
+    cout << "3. Transpose" << endl;
+    cout << "4. Diagonal Sum" << endl;
     cin >> choice;
 
-    int r1, c1, r2, c2;
-
-    switch (choice)
-    {
-        case 1:
-            cout << "Enter the number of rows for the matrices: ";
-            cin >> r1;
-            cout << "Enter the number of columns for the matrices: ";
-            cin >> c1;
-
-            cout << "Enter the elements of the 1st matrix: " << endl;
-            inputMat(mat1, r1, c1);
-            cout << "Enter the elements of the 2nd matrix: " << endl;
-            inputMat(mat2, r1, c1);
-
-            addmat(mat1, mat2, r1, c1);
-            break;
-
-        case 2:
-            cout << "Enter the number of rows for the 1st matrix: ";
-            cin >> r1;
-            cout << "Enter the number of columns for the 1st matrix: ";
-            cin >> c1;
-            cout << "Enter the number of rows for the 2nd matrix: ";
-            cin >> r2;
-            cout << "Enter the number of columns for the 2nd matrix: ";
-            cin >> c2;
-
-            if (c1 != r2) 
-            {
-                cout << "Matrix multiplication is not possible with these dimensions." << endl;
-            } 
-            else 
-            {
-                cout << "Enter the elements of the 1st matrix: " << endl;
-                inputMat(mat1, r1, c1);
-                cout << "Enter the elements of the 2nd matrix: " << endl;
-                inputMat(mat2, r2, c2);
-                mulmat(mat1, mat2, r1, c1, c2);
+    switch (choice) {
+        case 1: {
+            cout << "Addition of the two matrices:" << endl;
+            int add[100][100];
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    add[i][j] = mat1[i][j] + mat2[i][j];
+                    cout << add[i][j] << " ";
+                }
+                cout << endl;
             }
             break;
+        }
 
-        case 3:
-            cout << "Enter the number of rows for the matrices: ";
-            cin >> r1;
-            cout << "Enter the number of columns for the matrices: ";
-            cin >> c1;
-
-            cout << "Enter the elements of the 1st matrix: " << endl;
-            inputMat(mat1, r1, c1);
-            cout << "Enter the elements of the 2nd matrix: " << endl;
-            inputMat(mat2, r1, c1);
-
-            diagonaladdmat(mat1, mat2, r1, c1);
+        case 2: {
+            cout << "Subtraction of the two matrices:" << endl;
+            int sub[100][100];
+            for (int i = 0; i < rows; i++) {
+                for (int j = 0; j < cols; j++) {
+                    sub[i][j] = mat1[i][j] - mat2[i][j];
+                    cout << sub[i][j] << " ";
+                }
+                cout << endl;
+            }
             break;
+        }
 
-        case 4:
-            cout << "Enter the number of rows for the matrix: ";
-            cin >> r1;
-            cout << "Enter the number of columns for the matrix: ";
-            cin >> c1;
-
-            cout << "Enter the elements of the matrix: " << endl;
-            inputMat(mat1, r1, c1);
-
-            rowchecker(mat1, r1, c1);
+        case 3: {
+            cout << "Transpose of the first matrix:" << endl;
+            int transpose[100][100];
+            for (int i = 0; i < cols; i++) {
+                for (int j = 0; j < rows; j++) {
+                    transpose[i][j] = mat1[j][i];
+                    cout << transpose[i][j] << " ";
+                }
+                cout << endl;
+            }
             break;
-        case 5: 
-            cout << "Enter the number of rows for the matrices: ";
-            cin >> r1;
-            cout << "Enter the number of columns for the matrices: ";
-            cin >> c1;
+        }
 
-            inputMat(mat1,r1,c1);
-            cout<<"Original matrix"<<endl;
-            dispmat(mat1,r1,c1);
-            transpose(mat1,r1,c1);
+        case 4: {
+            cout << "Diagonal sum of the first matrix:" << endl;
+            int diagonalSum = 0;
+            for (int i = 0; i < rows && i < cols; i++) {
+                diagonalSum += mat1[i][i];
+            }
+            cout << "The diagonal sum is: " << diagonalSum << endl;
+            break;
+        }
+
         default:
             cout << "Invalid choice!" << endl;
             break;
@@ -254,10 +153,12 @@ int main()
 
     return 0;
 }
+
 ```
 ## Code Ouput: - 
-![image](https://github.com/user-attachments/assets/96237bcb-355b-49fc-84b4-29b7e211cdb9)
-![image](https://github.com/user-attachments/assets/50ac311c-7786-4026-9d27-b044b10e2d44)
+![image](https://github.com/user-attachments/assets/6ed0e4bb-d339-4618-953d-22164c5a1868)
+
+![image](https://github.com/user-attachments/assets/bc459813-4983-4cf5-b145-af8c98f1dda6)
 
 
 ## Conclusion: -
